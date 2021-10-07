@@ -164,9 +164,7 @@ namespace RestCli.HttpMethods
 
         protected async Task<int> ExecuteAsync( Task<RestResponse> send )
         {
-            var chrono = System.Diagnostics.Stopwatch.StartNew();
             var response = await send;
-            chrono.Stop();
 
             if ( Verbose )
             {
@@ -188,8 +186,8 @@ namespace RestCli.HttpMethods
                         Condition = x => (int)x >= 600
                     }
                 }
-                , (int)chrono.Elapsed.TotalMilliseconds
-                , $"{chrono.Elapsed.TotalMilliseconds:f0}ms" );
+                , (int)response.Duration.TotalMilliseconds
+                , $"{response.Duration.TotalMilliseconds:f0}ms" );
 
                 ConsoleEx.WriteLine( new ColorExpression[]
                 {
