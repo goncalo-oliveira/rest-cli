@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>RestCli</RootNamespace>
-    <Version>0.2.2</Version>
+    <Version>0.2.3</Version>
     <Authors>Goncalo Oliveira</Authors>
     <Description>REST API CLI</Description>
     <RepositoryUrl>https://github.com/goncalo-oliveira/rest-cli</RepositoryUrl>
