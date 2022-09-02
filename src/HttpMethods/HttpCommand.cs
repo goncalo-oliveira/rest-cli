@@ -25,7 +25,7 @@ namespace RestCli.HttpMethods
             "application/problem+json"
         };
 
-        private readonly RestClient client;
+        private readonly IRestClient client;
 
         public HttpCommand( IRestClientFactory clientFactory, HttpMethod httpMethod )
         {
@@ -141,7 +141,7 @@ namespace RestCli.HttpMethods
         protected virtual void Configure( RestRequestOptions requestOptions )
         {}
 
-        protected virtual Task<int> ExecuteAsync( RestRequest request, CommandLineApplication app )
+        protected virtual Task<int> ExecuteAsync( IRestClient request, CommandLineApplication app )
         {
             Task<RestResponse> send;
 

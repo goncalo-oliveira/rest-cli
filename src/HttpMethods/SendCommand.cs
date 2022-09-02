@@ -23,7 +23,7 @@ namespace RestCli.HttpMethods
         [Option( "--file|-f", Description = "The data file to send in the request body" )]
         public string DataFile { get; set; }
 
-        protected override Task<int> ExecuteAsync( RestRequest request, CommandLineApplication app )
+        protected override Task<int> ExecuteAsync( IRestClient request, CommandLineApplication app )
         {
             var stdin = StdIn.ReadString();
 
