@@ -2,19 +2,19 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>RestCli</RootNamespace>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
     <Authors>Goncalo Oliveira</Authors>
     <Description>REST API CLI</Description>
     <RepositoryUrl>https://github.com/goncalo-oliveira/rest-cli</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Faactory.RestClient" Version="0.3.0" />
-    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.0.1" />
-    <PackageReference Include="McMaster.Extensions.Hosting.CommandLine" Version="4.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.1" />
+    <PackageReference Include="Faactory.RestClient" Version="0.4.0-preview-1" />
+    <PackageReference Include="McMaster.Extensions.CommandLineUtils" Version="4.0.2" />
+    <PackageReference Include="McMaster.Extensions.Hosting.CommandLine" Version="4.0.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
   </ItemGroup>
 
 </Project>

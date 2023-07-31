@@ -17,7 +17,14 @@ namespace RestCli
             var builder = new HostBuilder()
                 .ConfigureServices( ( hostContext, services ) =>
                 {
-                    services.AddRestClient();
+                    services.AddRestClient( "cli", httpClient =>
+                    {
+                        //
+                    } )
+                    .ConfigurePrimaryHttpMessageHandler( () => new System.Net.Http.HttpClientHandler
+                    {
+                        UseProxy = false
+                    } );
                 } );
 
             try

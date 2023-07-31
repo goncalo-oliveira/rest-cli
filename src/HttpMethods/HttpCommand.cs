@@ -29,7 +29,7 @@ namespace RestCli.HttpMethods
 
         public HttpCommand( IRestClientFactory clientFactory, HttpMethod httpMethod )
         {
-            client = clientFactory.CreateClient(); // TODO: use context
+            client = clientFactory.CreateClient( "cli" ); // TODO: use context
             Method = httpMethod.Method;
 
             JsonSerializerOptions = new JsonSerializerOptions
@@ -59,6 +59,9 @@ namespace RestCli.HttpMethods
 
         [Option( "--verbose|-v", Description = "Display request and response details" )]
         public bool Verbose { get; set; }
+
+        [Option( "--http2", Description = "Use HTTP/2 protocol directly" )]
+        public bool Http2 { get; set; }
 
         //protected string StdIn { get; private set; }
 
@@ -144,6 +147,15 @@ namespace RestCli.HttpMethods
         protected virtual Task<int> ExecuteAsync( IRestClient request, CommandLineApplication app )
         {
             Task<RestResponse> send;
+
+            if ( Http2 )
+            {
+                request = request.Configure( options =>
+                {
+                    options.Version = System.Net.HttpVersion.Version20;
+                    options.VersionPolicy = HttpVersionPolicy.RequestVersionExact;
+                } );
+            }
 
             switch ( Method )
             {

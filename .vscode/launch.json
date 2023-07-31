@@ -12,9 +12,9 @@
         "request": "launch",
         "preLaunchTask": "build",
         // If you have changed target frameworks, make sure to update the program path.
-        "program": "${workspaceFolder}/src/bin/Debug/net5.0/rest.dll",
-        "args": [],
-        "cwd": "${workspaceFolder}/src",
+        "program": "${workspaceFolder}/src/bin/Debug/net7.0/rest.dll",
+        "args": ["get", "localhost:8000/get/key1", "--http2"],
+        "cwd": "${workspaceFolder}",
         "stopAtEntry": false
     }]
 }
